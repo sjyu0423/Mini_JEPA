@@ -15,9 +15,10 @@ Status: **Published and live**
 | Role | SHA |
 |---|---|
 | Initial release commit | `3220b5f43bdeedb47cb41f6981f43062df278c0e` |
-| Latest (this document may be followed by a docs/SEO fix commit) | see `git rev-parse HEAD` after push |
+| Latest on `main` | `8e56f6296c09a30c31828b61e342349952f9fa61` |
 
-Initial commit message: `Initial Mini-JEPA research and website release`
+Initial commit message: `Initial Mini-JEPA research and website release`  
+Follow-up: `Document W2 publication and fix Pages Open Graph base path`
 
 ## Deployment
 
@@ -26,6 +27,7 @@ Initial commit message: `Initial Mini-JEPA research and website release`
 - **Base path:** `/Mini_JEPA`
 - **Site origin:** `https://sjyu0423.github.io`
 - **First successful run:** https://github.com/sjyu0423/Mini_JEPA/actions/runs/44374113953
+- **Latest successful run:** https://github.com/sjyu0423/Mini_JEPA/actions/runs/44374575824
 - **Conclusion:** success (build + deploy)
 
 ## Live site
