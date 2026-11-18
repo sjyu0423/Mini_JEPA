@@ -15,10 +15,11 @@ Status: **Published and live**
 | Role | SHA |
 |---|---|
 | Initial release commit | `3220b5f43bdeedb47cb41f6981f43062df278c0e` |
-| Latest on `main` | `8e56f6296c09a30c31828b61e342349952f9fa61` |
+| SEO/docs follow-up | `8e56f6296c09a30c31828b61e342349952f9fa61` |
+| Latest on `main` | `34b9bcafa612d8f3f12129ea287c8d60bd8d3ca8` |
 
 Initial commit message: `Initial Mini-JEPA research and website release`  
-Follow-up: `Document W2 publication and fix Pages Open Graph base path`
+Follow-ups document publication results and correct Open Graph base-path composition.
 
 ## Deployment
 
