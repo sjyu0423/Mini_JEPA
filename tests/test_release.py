@@ -44,5 +44,5 @@ def test_release_documents_and_screenshot_exist() -> None:
 
 def test_generated_and_large_directories_are_ignored() -> None:
     ignored = (ROOT / ".gitignore").read_text().splitlines()
-    for expected in (".venv/", "data/", "artifacts/", "dist/"):
+    for expected in (".venv/", "/data/", "/artifacts/", "dist/"):
         assert expected in ignored

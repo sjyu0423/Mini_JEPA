@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { IBM_Plex_Mono, IBM_Plex_Sans, Source_Serif_4 } from "next/font/google";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
-import { canonicalSiteRoot, siteConfig, withBasePath } from "@/lib/site";
+import { canonicalSiteRoot, siteConfig, siteOrigin, withBasePath } from "@/lib/site";
 import "./globals.css";
 
 const sans = IBM_Plex_Sans({
@@ -26,10 +26,13 @@ const mono = IBM_Plex_Mono({
   display: "swap",
 });
 
+/** Host origin only — basePath is applied via withBasePath for asset URLs. */
+const metadataOrigin =
+  siteOrigin() ?? new URL(siteConfig.publishedSiteUrl).origin;
 const canonicalRoot = canonicalSiteRoot();
 
 export const metadata: Metadata = {
-  metadataBase: new URL(`${canonicalRoot}/`),
+  metadataBase: new URL(`${metadataOrigin}/`),
   title: {
     default: `${siteConfig.title} — ${siteConfig.subtitle}`,
     template: `%s · ${siteConfig.title}`,
@@ -38,13 +41,13 @@ export const metadata: Metadata = {
   authors: [{ name: siteConfig.author, url: siteConfig.githubUrl }],
   creator: siteConfig.author,
   alternates: {
-    canonical: "./",
+    canonical: `${canonicalRoot}/`,
   },
   openGraph: {
     title: siteConfig.title,
     description: siteConfig.description,
     type: "website",
-    url: canonicalRoot,
+    url: `${canonicalRoot}/`,
     siteName: siteConfig.title,
     images: [{ url: withBasePath("/plots/mini-jepa-demo.png"), alt: "Mini-JEPA interactive demo" }],
   },
