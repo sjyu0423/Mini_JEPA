@@ -1,0 +1,125 @@
+{
+  "export_version": "1.0.0",
+  "generated_at_utc": "2026-11-18T18:14:53+00:00",
+  "note": "Curated metrics copied from audited experiment JSON. Lower position RMSE is better. Selected-seed results are not multi-seed averages.",
+  "sources": {
+    "m2_results": {
+      "path": "artifacts/m2/results.json",
+      "sha256": "b1f46e4c73ee8f1a8b8c613d6da82bfcb8db64e42cac42ef564329a6c3852560"
+    },
+    "m3_results": {
+      "path": "artifacts/m3/results.json",
+      "sha256": "1a27f2ac0c982987192fcf5dc2d15a4bd4085c43c6279768bb54c6362c29927b"
+    }
+  },
+  "comparisons": [
+    {
+      "id": "m1-jepa",
+      "label": "M1 JEPA + frozen linear probe",
+      "supervision": "Images only during JEPA training; probe uses positions later",
+      "test_rmse_px": 2.835,
+      "ood_rmse_px": 5.391,
+      "kind": "selected-run"
+    },
+    {
+      "id": "m3-gru-selected",
+      "label": "Selected M3 GRU JEPA, seed 502 + probe",
+      "supervision": "Images only during JEPA training; probe uses positions later",
+      "test_rmse_px": 2.694,
+      "ood_rmse_px": 3.578,
+      "kind": "selected-run",
+      "seed": 502,
+      "family": "a1_gru_cosine"
+    },
+    {
+      "id": "m3-gru-mean",
+      "label": "M3 GRU family, 3-seed mean \u00b1 SD",
+      "supervision": "Images only during JEPA training; probe uses positions later",
+      "test_rmse_px": 2.894,
+      "test_rmse_sd_px": 0.217,
+      "ood_rmse_px": 3.884,
+      "ood_rmse_sd_px": 0.292,
+      "kind": "multi-seed-mean",
+      "seeds": [
+        501,
+        502,
+        503
+      ]
+    },
+    {
+      "id": "supervised-cnn",
+      "label": "Supervised CNN",
+      "supervision": "Receives position labels during training",
+      "test_rmse_px": 0.65,
+      "ood_rmse_px": 1.247,
+      "kind": "baseline"
+    },
+    {
+      "id": "wall-aware-physics",
+      "label": "Wall-aware analytic physics",
+      "supervision": "Receives measured positions; analytic reflection model",
+      "test_rmse_px": 0.111,
+      "ood_rmse_px": 0.312,
+      "kind": "baseline"
+    },
+    {
+      "id": "random-encoder",
+      "label": "Random frozen encoder + probe",
+      "supervision": "Untrained encoder; probe uses positions",
+      "test_rmse_px": 11.394,
+      "ood_rmse_px": null,
+      "kind": "baseline"
+    }
+  ],
+  "bounce_conditions": [
+    {
+      "condition": "ordinary",
+      "bounce_windows": 39,
+      "m1_rmse_px": 3.072,
+      "m3_rmse_px": 2.841,
+      "m1_bounce_mean_px": 4.104,
+      "m3_bounce_mean_px": 4.618
+    },
+    {
+      "condition": "near-wall",
+      "bounce_windows": 48,
+      "m1_rmse_px": 3.456,
+      "m3_rmse_px": 2.715,
+      "m1_bounce_mean_px": 3.131,
+      "m3_bounce_mean_px": 3.487
+    },
+    {
+      "condition": "multiple-bounce",
+      "bounce_windows": 249,
+      "m1_rmse_px": 14.241,
+      "m3_rmse_px": 7.745,
+      "m1_bounce_mean_px": 11.681,
+      "m3_bounce_mean_px": 5.912
+    },
+    {
+      "condition": "high-speed",
+      "bounce_windows": 93,
+      "m1_rmse_px": 5.682,
+      "m3_rmse_px": 3.675,
+      "m1_bounce_mean_px": 4.906,
+      "m3_bounce_mean_px": 4.136
+    }
+  ],
+  "test_suite": {
+    "pytest_collected": 45,
+    "note": "Original automated test suite through M5 collected 45 tests."
+  },
+  "caveats": [
+    "Lower position RMSE is better.",
+    "Classical physics baselines use measured position information.",
+    "Image-based models use rendered observations.",
+    "Selected best-seed results are not the same as multi-seed averages.",
+    "JEPA did not outperform the supervised or physics-based baselines.",
+    "High-speed robustness improved, but some bounce scenarios remain difficult."
+  ],
+  "diagnostic_overall": {
+    "m3_rmse_px": 4.715,
+    "m3_bounce_mean_px": 5.138,
+    "m3_non_bounce_mean_px": 3.669
+  }
+}

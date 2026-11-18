@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+title: "Mini-JEPA"
+message: "If you use this software or cite these results, please cite it as below."
+type: software
+authors:
+  - family-names: "sjyu0423"
+    alias: "sjyu0423"
+repository-code: "https://github.com/sjyu0423/Mini_JEPA"
+url: "https://sjyu0423.github.io/Mini_JEPA/"
+license: MIT
+version: "1.0.0"
+date-released: "2026-11-18"
+abstract: >-
+  Mini-JEPA is a compact, reproducible research project that investigates whether
+  a joint-embedding predictive architecture can learn useful motion representations
+  from synthetic bouncing-ball video without reconstructing pixels or receiving
+  physical-state labels during self-supervised training.
+keywords:
+  - self-supervised learning
+  - JEPA
+  - representation learning
+  - visual motion
+  - bouncing ball
+  - PyTorch

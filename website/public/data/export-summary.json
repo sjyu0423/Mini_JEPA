@@ -1,0 +1,23 @@
+{
+  "export_version": "1.0.0",
+  "output": "website/public/data",
+  "metrics_methods": 6,
+  "scenarios": [
+    "ordinary",
+    "near-wall",
+    "high-speed",
+    "multiple-bounce"
+  ],
+  "plots": [
+    "plots/m2-model-comparison.png",
+    "plots/m2-actual-vs-predicted.png",
+    "plots/m2-bounce-comparison.png",
+    "plots/m2-embedding-diagnostics.png",
+    "plots/m3-heldout-comparison.png",
+    "plots/m3-bounce-diagnostic.png",
+    "plots/m3-representation-diagnostics.png",
+    "plots/m3-stage1-validation.png",
+    "plots/mini-jepa-demo.png",
+    "plots/m4-demo-desktop.png"
+  ]
+}

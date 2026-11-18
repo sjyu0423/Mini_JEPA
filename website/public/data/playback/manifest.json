@@ -1,0 +1,72 @@
+{
+  "export_version": "1.0.0",
+  "generated_at_utc": "2026-11-18T18:14:54+00:00",
+  "disclaimer": "Precomputed predictions from trained PyTorch checkpoints. No model runs in the browser.",
+  "models": [
+    {
+      "id": "m1-jepa",
+      "label": "M1 JEPA \u00b7 temporal MLP",
+      "input": "Rendered images only"
+    },
+    {
+      "id": "m3-jepa",
+      "label": "M3 JEPA \u00b7 GRU",
+      "input": "Rendered images only"
+    },
+    {
+      "id": "constant-velocity",
+      "label": "Constant velocity",
+      "input": "Measured positions (privileged baseline)"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "ordinary",
+      "file": "playback/ordinary.json",
+      "seed": 42,
+      "frame_count": 120,
+      "description": "Typical mid-arena motion with occasional wall contact.",
+      "mean_error_px": {
+        "constant-velocity": 0.036,
+        "m1-jepa": 2.489,
+        "m3-jepa": 2.524
+      }
+    },
+    {
+      "id": "near-wall",
+      "file": "playback/near-wall.json",
+      "seed": 42,
+      "frame_count": 120,
+      "description": "Starts near a wall with an intentional bounce.",
+      "mean_error_px": {
+        "constant-velocity": 0.074,
+        "m1-jepa": 3.423,
+        "m3-jepa": 3.048
+      }
+    },
+    {
+      "id": "high-speed",
+      "file": "playback/high-speed.json",
+      "seed": 42,
+      "frame_count": 120,
+      "description": "Faster motion than the training speed band.",
+      "mean_error_px": {
+        "constant-velocity": 0.212,
+        "m1-jepa": 5.817,
+        "m3-jepa": 3.63
+      }
+    },
+    {
+      "id": "multiple-bounce",
+      "file": "playback/multiple-bounce.json",
+      "seed": 42,
+      "frame_count": 120,
+      "description": "Very fast motion that produces dense collisions.",
+      "mean_error_px": {
+        "constant-velocity": 1.522,
+        "m1-jepa": 13.462,
+        "m3-jepa": 7.269
+      }
+    }
+  ]
+}
